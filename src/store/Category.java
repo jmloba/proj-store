@@ -27,7 +27,7 @@ public class Category extends javax.swing.JFrame {
     private void frameSizeLocation() {
     int  height =  global.GlobalVariables.windowCategoryHeight;
     int  width =  global.GlobalVariables.windowCategoryWidth;
-    int x = 450;
+    int x = 600;
     int y = 250;
 //    setSize(width, height);
 //    setLocation(200,100);
@@ -59,6 +59,8 @@ public class Category extends javax.swing.JFrame {
     jLabel5 = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setUndecorated(true);
+    setResizable(false);
     addComponentListener(new java.awt.event.ComponentAdapter() {
       public void componentShown(java.awt.event.ComponentEvent evt) {
         formComponentShown(evt);
@@ -73,18 +75,21 @@ public class Category extends javax.swing.JFrame {
         jButton1ActionPerformed(evt);
       }
     });
-    getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 10, -1, -1));
+    getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 10, 90, 40));
 
     jPanel1.setBackground(new java.awt.Color(240, 255, 204));
     jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
     jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+    jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
     jLabel2.setText("Category Code");
     jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 42, -1, -1));
 
+    jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
     jLabel3.setText("Name");
     jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 124, -1, -1));
 
+    btn_Save.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
     btn_Save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/save.png"))); // NOI18N
     btn_Save.setText("SAve");
     btn_Save.addActionListener(new java.awt.event.ActionListener() {
@@ -92,8 +97,9 @@ public class Category extends javax.swing.JFrame {
         btn_SaveActionPerformed(evt);
       }
     });
-    jPanel1.add(btn_Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
+    jPanel1.add(btn_Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
 
+    jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
     jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/clear.png"))); // NOI18N
     jButton3.setText("Clear");
     jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -101,8 +107,12 @@ public class Category extends javax.swing.JFrame {
         jButton3ActionPerformed(evt);
       }
     });
-    jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, -1));
+    jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
+
+    txtCode.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
     jPanel1.add(txtCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 75, 160, -1));
+
+    txtName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
     jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 165, -1));
 
     getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 200, 330));
@@ -111,6 +121,7 @@ public class Category extends javax.swing.JFrame {
     jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
     jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+    jTable1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
     jTable1.setModel(new javax.swing.table.DefaultTableModel(
       new Object [][] {
 
@@ -126,7 +137,7 @@ public class Category extends javax.swing.JFrame {
     });
     jScrollPane1.setViewportView(jTable1);
 
-    jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 390, 250));
+    jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 370, 250));
 
     getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 430, 330));
 

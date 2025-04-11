@@ -69,6 +69,8 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
     jLabel1 = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setUndecorated(true);
+    setResizable(false);
     addComponentListener(new java.awt.event.ComponentAdapter() {
       public void componentShown(java.awt.event.ComponentEvent evt) {
         formComponentShown(evt);
@@ -78,6 +80,11 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
 
     jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit small.png"))); // NOI18N
     jButton1.setText("Exit");
+    jButton1.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton1ActionPerformed(evt);
+      }
+    });
     getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 30, -1, 40));
 
     jPanel1.setBackground(new java.awt.Color(221, 242, 242));
@@ -324,6 +331,10 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
       txtCost.setText(txtCost.getText().substring(1));
     }
   }//GEN-LAST:event_txtCostKeyTyped
+
+  private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    setVisible(false);
+  }//GEN-LAST:event_jButton1ActionPerformed
 
   /**
    * @param args the command line arguments

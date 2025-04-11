@@ -26,7 +26,19 @@ public class ChangePassword extends javax.swing.JFrame {
     mypass = user.getPassword();
     System.out.println("system email -->> : "+ user_Email);
     System.out.println("system oldpass -->> : "+ mypass);
+    frameSizeLocation();
   }
+    private void frameSizeLocation() {
+    int  height =  global.GlobalVariables.windowCategoryHeight;
+    int  width =  global.GlobalVariables.windowCategoryWidth;
+    int x = 600;
+    int y = 250;
+//    setSize(width, height);
+//    setLocation(200,100);
+    setBounds(x,y,width,height);
+
+  }    
+
 
   /**
    * This method is called from within the constructor to initialize the form.
@@ -47,22 +59,30 @@ public class ChangePassword extends javax.swing.JFrame {
     txtPasswordOld = new javax.swing.JPasswordField();
     txtPasswordNew = new javax.swing.JPasswordField();
     lbl_Email = new javax.swing.JLabel();
+    jButton1 = new javax.swing.JButton();
+    jLabel4 = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setUndecorated(true);
+    setResizable(false);
     getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
     jPanel1.setBackground(new java.awt.Color(224, 242, 242));
     jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+    jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
     jLabel1.setText("Confirm Password");
     jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 142, 34));
 
+    jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
     jLabel2.setText("Old Password");
     jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 142, 33));
 
+    jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
     jLabel3.setText("New Password");
     jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 142, 34));
 
+    btn_Save.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
     btn_Save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/save.png"))); // NOI18N
     btn_Save.setText("Save");
     btn_Save.addActionListener(new java.awt.event.ActionListener() {
@@ -72,6 +92,7 @@ public class ChangePassword extends javax.swing.JFrame {
     });
     jPanel1.add(btn_Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 125, 40));
 
+    btn_clear.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
     btn_clear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/clear.png"))); // NOI18N
     btn_clear.setText("Clear");
     btn_clear.addActionListener(new java.awt.event.ActionListener() {
@@ -81,6 +102,7 @@ public class ChangePassword extends javax.swing.JFrame {
     });
     jPanel1.add(btn_clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 117, 40));
 
+    txtPasswordConfirm.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
     txtPasswordConfirm.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         txtPasswordConfirmActionPerformed(evt);
@@ -96,6 +118,7 @@ public class ChangePassword extends javax.swing.JFrame {
     });
     jPanel1.add(txtPasswordConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 160, -1));
 
+    txtPasswordOld.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
     txtPasswordOld.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         txtPasswordOldActionPerformed(evt);
@@ -114,6 +137,7 @@ public class ChangePassword extends javax.swing.JFrame {
     });
     jPanel1.add(txtPasswordOld, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 160, -1));
 
+    txtPasswordNew.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
     txtPasswordNew.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         txtPasswordNewActionPerformed(evt);
@@ -131,6 +155,20 @@ public class ChangePassword extends javax.swing.JFrame {
 
     getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 510, 300));
     getContentPane().add(lbl_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 378, 388, 41));
+
+    jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+    jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit small.png"))); // NOI18N
+    jButton1.setText("Exit");
+    jButton1.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton1ActionPerformed(evt);
+      }
+    });
+    getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(546, 10, 110, 40));
+
+    jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background_orange_700x450.png"))); // NOI18N
+    jLabel4.setText("jLabel4");
+    getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 450));
 
     pack();
   }// </editor-fold>//GEN-END:initComponents
@@ -189,6 +227,10 @@ public class ChangePassword extends javax.swing.JFrame {
 
   }//GEN-LAST:event_txtPasswordNewKeyTyped
 
+  private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+  setVisible(false);
+  }//GEN-LAST:event_jButton1ActionPerformed
+
   /**
    * @param args the command line arguments
    */
@@ -227,9 +269,11 @@ public class ChangePassword extends javax.swing.JFrame {
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton btn_Save;
   private javax.swing.JButton btn_clear;
+  private javax.swing.JButton jButton1;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
   private javax.swing.JLabel jLabel3;
+  private javax.swing.JLabel jLabel4;
   private javax.swing.JPanel jPanel1;
   private javax.swing.JLabel lbl_Email;
   private javax.swing.JPasswordField txtPasswordConfirm;

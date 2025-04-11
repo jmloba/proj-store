@@ -40,11 +40,9 @@ public class tables {
 //    createTable_VariableTable();
 //    createTAble_Category();
 //    createTAble_Product();
-
-    
-    
 //    createTAble_Product();
-    createTable_Bill();
+//    createTable_Bill();
+      createTable_Bill_history();
     
       
   }
@@ -159,6 +157,26 @@ public class tables {
 
   try{          
        DbOperations.createtable(TABLE_NAME,query );
+     }catch(Exception e){
+         JOptionPane.showMessageDialog(null, e);
+     }
+  }
+
+  private static void createTable_Bill_history() {
+     String TABLE_NAME= "billdetails";
+
+    String query="create table "+TABLE_NAME+" (id int primary key AUTO_INCREMENT,"
+            + "bill_no int  not null, "
+            + "bill_date date   not null, "
+            + "product_name varchar (200) not null, "
+            + "quantity int not null default 0, "
+            + "price double not null default 0.00, "
+            + "total double not null default 0.00, "
+            + "createdby varchar(200)"
+            + ")"   ;
+  try{          
+      createtable(TABLE_NAME,query );
+       
      }catch(Exception e){
          JOptionPane.showMessageDialog(null, e);
      }

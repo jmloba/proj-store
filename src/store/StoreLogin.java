@@ -57,8 +57,11 @@ public class StoreLogin extends javax.swing.JFrame {
     jLabel3 = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setUndecorated(true);
+    setResizable(false);
     getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+    jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
     jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit small.png"))); // NOI18N
     jButton1.setText("Exit");
     jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -66,38 +69,50 @@ public class StoreLogin extends javax.swing.JFrame {
         jButton1ActionPerformed(evt);
       }
     });
-    getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 40, -1, -1));
+    getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 40, 100, 40));
 
     jPanel1.setBackground(new java.awt.Color(208, 242, 242));
     jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+    txtPassword.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
     jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 112, 224, -1));
 
+    btn_Login.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+    btn_Login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login.png"))); // NOI18N
     btn_Login.setText("Login");
     btn_Login.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         btn_LoginActionPerformed(evt);
       }
     });
-    jPanel1.add(btn_Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 201, -1, -1));
+    jPanel1.add(btn_Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 201, 120, 40));
 
+    btnCancel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+    btnCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/clear.png"))); // NOI18N
     btnCancel.setText("Cancel");
-    jPanel1.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 201, -1, -1));
+    jPanel1.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 120, 40));
 
-    btnRegister.setText("REgister");
-    jPanel1.add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(366, 201, -1, -1));
+    btnRegister.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+    btnRegister.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/verify users.png"))); // NOI18N
+    btnRegister.setText("Register");
+    jPanel1.add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, -1, -1));
 
+    jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
     jLabel1.setText("Email");
     jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 64, 137, -1));
 
+    jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
     jLabel2.setText("Password");
-    jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 115, -1, -1));
+    jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, -1, -1));
+
+    txtEmail.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
     jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 64, 224, -1));
 
-    getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 590, 350));
+    getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 590, 350));
 
     jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/storeHome.png"))); // NOI18N
     jLabel3.setText("jLabel3");
-    getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 780));
+    getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1380, 800));
 
     pack();
   }// </editor-fold>//GEN-END:initComponents

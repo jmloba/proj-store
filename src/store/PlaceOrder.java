@@ -5,6 +5,7 @@
 package store;
 
 import Dao.BillDao;
+import Dao.BillDetailDao;
 import Dao.CategoryDao;
 import Dao.ProductDao;
 import com.lowagie.text.Paragraph;
@@ -20,6 +21,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import model.Bill;
+import model.BillDetails;
 import model.Product;
 
 /**
@@ -78,6 +80,7 @@ public class PlaceOrder extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
+    jButton1 = new javax.swing.JButton();
     jPanel2 = new javax.swing.JPanel();
     jLabel8 = new javax.swing.JLabel();
     cbCategory = new javax.swing.JComboBox<>();
@@ -111,16 +114,27 @@ public class PlaceOrder extends javax.swing.JFrame {
     txtGrandTotal = new javax.swing.JTextField();
     btn_Generate = new javax.swing.JButton();
     jSpinner1 = new javax.swing.JSpinner();
-    myEmail = new javax.swing.JLabel();
     jLabel1 = new javax.swing.JLabel();
+    myEmail = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setUndecorated(true);
+    setResizable(false);
     addComponentListener(new java.awt.event.ComponentAdapter() {
       public void componentShown(java.awt.event.ComponentEvent evt) {
         formComponentShown(evt);
       }
     });
     getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+    jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit small.png"))); // NOI18N
+    jButton1.setText("Exit");
+    jButton1.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton1ActionPerformed(evt);
+      }
+    });
+    getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 20, 130, 50));
 
     jPanel2.setBackground(new java.awt.Color(238, 255, 255));
     jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -357,12 +371,12 @@ public class PlaceOrder extends javax.swing.JFrame {
 
     getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(634, 79, 700, 630));
 
-    myEmail.setText("Place Order");
-    getContentPane().add(myEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(587, 20, 179, -1));
-
     jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/storeHome.png"))); // NOI18N
     jLabel1.setText("Place Order");
     getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, -1));
+
+    myEmail.setText("Place Order");
+    getContentPane().add(myEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(587, 20, 179, -1));
 
     pack();
   }// </editor-fold>//GEN-END:initComponents
@@ -524,14 +538,17 @@ public class PlaceOrder extends javax.swing.JFrame {
       tabl.addCell("Quantity");
       tabl.addCell("Total");
       for (int i=0; i< jTable2.getRowCount(); i++){
-        String n = jTable2.getValueAt(i, 0).toString();
-        String d = jTable2.getValueAt(i, 1).toString();
-        String r = jTable2.getValueAt(i, 2).toString();
-        String g = jTable2.getValueAt(i, 3).toString();
-        tabl.addCell(n);
-        tabl.addCell(d);
-        tabl.addCell(r);
-        tabl.addCell(g);
+        String m_name = jTable2.getValueAt(i, 0).toString();
+        String m_price = jTable2.getValueAt(i, 1).toString();
+        String m_quantity = jTable2.getValueAt(i, 2).toString();
+        String m_total = jTable2.getValueAt(i, 3).toString();
+        
+        tabl.addCell(m_name);
+        tabl.addCell(m_price);
+        tabl.addCell(m_quantity);
+        tabl.addCell(m_total);
+        
+        save_record_to_bill_Details(billId,todaydate,m_name,Integer.valueOf(m_quantity), Double.valueOf(m_price), Double.valueOf(m_total),createdby );
       }
       doc.add(tabl);
       doc.add(starline);
@@ -579,6 +596,10 @@ public class PlaceOrder extends javax.swing.JFrame {
     productNameByCategory(category);
   }//GEN-LAST:event_formComponentShown
 
+  private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+  setVisible(false);
+  }//GEN-LAST:event_jButton1ActionPerformed
+
   /**
    * @param args the command line arguments
    */
@@ -619,6 +640,7 @@ public class PlaceOrder extends javax.swing.JFrame {
   private javax.swing.JButton btnClear1;
   private javax.swing.JButton btn_Generate;
   private javax.swing.JComboBox<String> cbCategory;
+  private javax.swing.JButton jButton1;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel10;
   private javax.swing.JLabel jLabel11;
@@ -739,4 +761,31 @@ private void fill_category() {
     btnAddCart.setEnabled(false);
     
   }
+
+  private void save_record_to_bill_Details(
+          int billId, String todaydate, String m_name, 
+          int quantity, double price, double total, String createdby
+          ) {
+    String mdate = reformatdate(todaydate);
+  BillDetails bd = new BillDetails();
+  bd.setBill_no(billId);
+  bd.setDate(mdate);
+  bd.setName(m_name);
+  bd.setQuantity(quantity);
+  bd.setPrice(price);
+  bd.setTotal(total);
+  bd.setCreatedby(createdby);
+  
+       BillDetailDao.save(bd);
+    
+  }
+
+  private String reformatdate(String todaydate) {
+  
+    String str = todaydate.substring(6, 10)+todaydate.substring(3, 5)+todaydate.substring(0, 2);
+    System.out.println("date : todaydate: " + todaydate);
+    System.out.println("substring :"+ str);
+    return str;
+  }
+  
 }

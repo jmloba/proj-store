@@ -27,8 +27,8 @@ public class NewStoreProduct extends javax.swing.JFrame {
   private void frameSizeLocation() {
     int  height =  global.GlobalVariables.windowCategoryHeight;
     int  width =  global.GlobalVariables.windowCategoryWidth;
-    int x = 400 ;
-    int y = 300;
+    int x = 600;
+    int y = 250;
 //    setSize(width, height);
 //    setLocation(200,100);
     setBounds(x,y,width,height);
@@ -61,6 +61,7 @@ public class NewStoreProduct extends javax.swing.JFrame {
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setMinimumSize(new java.awt.Dimension(500, 250));
+    setUndecorated(true);
     setResizable(false);
     addComponentListener(new java.awt.event.ComponentAdapter() {
       public void componentShown(java.awt.event.ComponentEvent evt) {
@@ -273,6 +274,7 @@ save_record();
    String category = (String)cbCategory.getSelectedItem();
    
    Product product = new Product();
+   
    product.setName(name);
    product.setCategory(category);
    product.setPrice(price);

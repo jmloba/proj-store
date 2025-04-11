@@ -100,6 +100,7 @@ public class ViewBillsAndPlacedOrder extends javax.swing.JFrame {
     jLabel6 = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setUndecorated(true);
     setResizable(false);
     addComponentListener(new java.awt.event.ComponentAdapter() {
       public void componentShown(java.awt.event.ComponentEvent evt) {
@@ -111,13 +112,14 @@ public class ViewBillsAndPlacedOrder extends javax.swing.JFrame {
     jLabel1.setText("View Bilss and Order Placed");
     getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 6, 305, 29));
 
+    jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit small.png"))); // NOI18N
     jButton1.setText("Close");
     jButton1.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButton1ActionPerformed(evt);
       }
     });
-    getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 10, -1, -1));
+    getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 30, -1, -1));
 
     jPanel2.setBackground(new java.awt.Color(214, 242, 242));
     jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -176,9 +178,9 @@ public class ViewBillsAndPlacedOrder extends javax.swing.JFrame {
 
     jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
     jLabel4.setText("Click on Row to Open Bill");
-    jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 530, -1, -1));
+    jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 550, -1, -1));
 
-    getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 990, 600));
+    getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 990, 600));
 
     jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/storeHome.png"))); // NOI18N
     getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
