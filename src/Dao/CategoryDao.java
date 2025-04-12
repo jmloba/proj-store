@@ -37,11 +37,11 @@ public class CategoryDao {
    System.out.println("query : "+query );
     display_query(query);
      if(handler.execAction(query)){
-      String message= " Insert into category success !! ";
-       AlertMaker.AlertQuery_Success(message);
+      String message= " Category Added/Inserted ... ";
+       AlertMaker.AlertQuery_InsertOK(message);
     }else {
-      String message= " Did not insert in category user";
-      AlertMaker.AlertQuery_Error(message);   
+      String message= " Duplicate Entry";
+      AlertMaker.AlertQuery_Duplicate(message);   
     }        
 //    DbOperations.setDataOrDelete(query, "Category has been added successfully!!, wait for admin approval ");
   }

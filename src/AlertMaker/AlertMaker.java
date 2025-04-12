@@ -34,6 +34,17 @@ public class AlertMaker {
       JOptionPane.showMessageDialog(null, html_message,"Message",JOptionPane.ERROR_MESSAGE,icon);
   }
   
-  
+    public static void AlertQuery_Duplicate(String message){
+   String html_message =
+      "<html><b style=\"color:Blue; font-size:14px  \"; > "+message+" </b>      </html>"   ;  
+      ImageIcon icon = new ImageIcon("src/popupicon/error_close_red_40.png");
+      JOptionPane.showMessageDialog(null, html_message,"Message",JOptionPane.ERROR_MESSAGE,icon);
+  }
+      public static void AlertQuery_InsertOK(String message){
+   String html_message =
+      "<html><b style=\"color:Green; font-size:14px  \"; > "+message+" </b>      </html>"   ;  
+      ImageIcon icon = new ImageIcon("src/popupicon/update_check_darkgreen.png");
+      JOptionPane.showMessageDialog(null, html_message,"Message",JOptionPane.INFORMATION_MESSAGE,icon);
+  }
   
 }

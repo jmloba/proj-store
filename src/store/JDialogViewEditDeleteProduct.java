@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package store;
 
@@ -12,19 +12,20 @@ import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-import model.Category;
 import model.Product;
+
 
 /**
  *
  * @author JovenLoba
  */
-public class ViewEditDeleteProduct extends javax.swing.JFrame {
+public class JDialogViewEditDeleteProduct extends javax.swing.JDialog {
 
   /**
-   * Creates new form ViewEditDeleteProduct
+   * Creates new form JDialogViewEditDeleteProduct
    */
-  public ViewEditDeleteProduct() {
+  public JDialogViewEditDeleteProduct(java.awt.Frame parent, boolean modal) {
+    super(parent, modal);
     initComponents();
     frameSizeLocation();
   }
@@ -48,10 +49,10 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
-    jButton1 = new javax.swing.JButton();
     jPanel1 = new javax.swing.JPanel();
     jScrollPane1 = new javax.swing.JScrollPane();
     jTable1 = new javax.swing.JTable();
+    jButton1 = new javax.swing.JButton();
     jPanel2 = new javax.swing.JPanel();
     jLabel2 = new javax.swing.JLabel();
     jLabel3 = new javax.swing.JLabel();
@@ -68,8 +69,7 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
     btn_Update = new javax.swing.JButton();
     jLabel1 = new javax.swing.JLabel();
 
-    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-    setUndecorated(true);
+    setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     setResizable(false);
     addComponentListener(new java.awt.event.ComponentAdapter() {
       public void componentShown(java.awt.event.ComponentEvent evt) {
@@ -77,15 +77,6 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
       }
     });
     getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-    jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit small.png"))); // NOI18N
-    jButton1.setText("Exit");
-    jButton1.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jButton1ActionPerformed(evt);
-      }
-    });
-    getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 170, -1, 40));
 
     jPanel1.setBackground(new java.awt.Color(221, 242, 242));
 
@@ -108,20 +99,29 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
     jPanel1.setLayout(jPanel1Layout);
     jPanel1Layout.setHorizontalGroup(
       jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(jPanel1Layout.createSequentialGroup()
-        .addGap(43, 43, 43)
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        .addContainerGap(44, Short.MAX_VALUE)
         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addContainerGap(38, Short.MAX_VALUE))
+        .addGap(37, 37, 37))
     );
     jPanel1Layout.setVerticalGroup(
       jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(jPanel1Layout.createSequentialGroup()
-        .addGap(54, 54, 54)
-        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addContainerGap(79, Short.MAX_VALUE))
+        .addGap(33, 33, 33)
+        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 613, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addContainerGap(44, Short.MAX_VALUE))
     );
 
-    getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 670, 560));
+    getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 670, 690));
+
+    jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit small.png"))); // NOI18N
+    jButton1.setText("Exit");
+    jButton1.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton1ActionPerformed(evt);
+      }
+    });
+    getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 30, -1, 40));
 
     jPanel2.setBackground(new java.awt.Color(235, 255, 255));
     jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -208,22 +208,51 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
     });
     jPanel2.add(btn_Update, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 110, 40));
 
-    getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 230, 540, 430));
+    getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 170, 540, 430));
 
-    jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/storeHome.png"))); // NOI18N
-    jLabel1.setText("jLabel1");
-    getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 790));
+    jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/2.png"))); // NOI18N
+    getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
     pack();
   }// </editor-fold>//GEN-END:initComponents
 
-  private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
-    fill_Table();
-    fill_combo();
-  }//GEN-LAST:event_formComponentShown
+  private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    int index = jTable1.getSelectedRow();
+
+    TableModel model=  jTable1.getModel();
+
+    String id = model.getValueAt(index, 0).toString();
+    String name = model.getValueAt(index, 1).toString();
+    String category = model.getValueAt(index, 2).toString();
+    String cost = model.getValueAt(index,3).toString();
+    String price = model.getValueAt(index,4).toString();
+
+    lbl_Id.setText(id);
+    txtName.setText(name);
+    cbCategory.setSelectedItem(category);
+    txtCost.setText(cost);
+    txtPrice.setText(price);
+
+    cbCategory.removeAllItems();
+    cbCategory.addItem(category);
+
+    ArrayList<model.Category> categoryList = CategoryDao.getAllRecords();
+    Iterator<model.Category> categoryItr = categoryList.iterator();
+    while(categoryItr.hasNext()){
+      model.Category categoryObj = categoryItr.next();
+      if (!categoryObj.getName().equals(category)){
+        cbCategory.addItem(categoryObj.getName());
+      }
+    }
+    validateFields();
+  }//GEN-LAST:event_jTable1MouseClicked
+
+  private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    setVisible(false);
+  }//GEN-LAST:event_jButton1ActionPerformed
 
   private void txtNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyReleased
-  validateFields();
+    validateFields();
   }//GEN-LAST:event_txtNameKeyReleased
 
   private void txtPriceKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPriceKeyReleased
@@ -246,6 +275,42 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
     }
   }//GEN-LAST:event_txtPriceKeyTyped
 
+  private void btn_DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DeleteActionPerformed
+    int id =Integer.parseInt(lbl_Id.getText());
+    String name = txtName.getText();
+
+    int a = JOptionPane.showConfirmDialog(null,"Confirm to id '"+id+"' , Product : '"+ name+"'", "Select", JOptionPane.YES_NO_OPTION);
+    if (a==0){
+      ProductDao.delete(id);
+      setVisible(false);
+    JDialogViewEditDeleteProduct dialog = new JDialogViewEditDeleteProduct(new javax.swing.JFrame(), true);
+    dialog.setVisible(true);
+      
+
+
+    }
+  }//GEN-LAST:event_btn_DeleteActionPerformed
+
+  private void btn_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelActionPerformed
+    clear();
+  }//GEN-LAST:event_btn_CancelActionPerformed
+
+  private void txtCostKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCostKeyTyped
+    char c = evt.getKeyChar();
+    if ( !(Character.isDigit(c)) && c !=KeyEvent.VK_PERIOD){
+      getToolkit().beep();
+      evt.consume();
+    }else if(c==KeyEvent.VK_PERIOD && txtCost.getText().indexOf(".")>-1 ){
+      getToolkit().beep();
+      evt.consume();
+    } else if (txtCost.getText().length()>=10){
+      getToolkit().beep();
+      evt.consume();
+    } if(txtCost.getText().length()==9){
+      txtCost.setText(txtCost.getText().substring(1));
+    }
+  }//GEN-LAST:event_txtCostKeyTyped
+
   private void btn_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_UpdateActionPerformed
     int id =Integer.parseInt(lbl_Id.getText());
     String name = txtName.getText();
@@ -262,79 +327,15 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
 
     ProductDao.update(product);
     setVisible(false);
-    new ViewEditDeleteProduct().setVisible(true);
+    JDialogViewEditDeleteProduct dialog = new JDialogViewEditDeleteProduct(new javax.swing.JFrame(), true);
+    dialog.setVisible(true);
+//    new ViewEditDeleteProduct().setVisible(true);
   }//GEN-LAST:event_btn_UpdateActionPerformed
 
-  private void btn_DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DeleteActionPerformed
-    int id =Integer.parseInt(lbl_Id.getText());
-    String name = txtName.getText();
-
-    int a = JOptionPane.showConfirmDialog(null,"Confirm to id '"+id+"' , Product : '"+ name+"'", "Select", JOptionPane.YES_NO_OPTION);
-    if (a==0){
-      ProductDao.delete(id);
-      setVisible(false);
-      new ViewEditDeleteProduct().setVisible(true);
-
-    }
-  }//GEN-LAST:event_btn_DeleteActionPerformed
-
-  private void btn_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelActionPerformed
-    clear();
-  }//GEN-LAST:event_btn_CancelActionPerformed
-
-  private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-    int index = jTable1.getSelectedRow();
-    
-    TableModel model=  jTable1.getModel();
-    
-    String id = model.getValueAt(index, 0).toString();
-    String name = model.getValueAt(index, 1).toString();
-    String category = model.getValueAt(index, 2).toString();
-    String cost = model.getValueAt(index,3).toString();
-    String price = model.getValueAt(index,4).toString();
-    
-    lbl_Id.setText(id);
-    txtName.setText(name);
-    cbCategory.setSelectedItem(category);
-    txtCost.setText(cost);
-    txtPrice.setText(price);
-    
-    
-    
-
-    cbCategory.removeAllItems();
-    cbCategory.addItem(category);
-    
-    ArrayList<Category> categoryList = CategoryDao.getAllRecords();
-    Iterator<Category> categoryItr = categoryList.iterator();
-    while(categoryItr.hasNext()){
-      Category categoryObj = categoryItr.next();
-      if (!categoryObj.getName().equals(category)){
-        cbCategory.addItem(categoryObj.getName());
-      }
-    }
-        validateFields();    
-  }//GEN-LAST:event_jTable1MouseClicked
-
-  private void txtCostKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCostKeyTyped
-       char c = evt.getKeyChar();
-    if ( !(Character.isDigit(c)) && c !=KeyEvent.VK_PERIOD){
-      getToolkit().beep();
-      evt.consume();
-    }else if(c==KeyEvent.VK_PERIOD && txtCost.getText().indexOf(".")>-1 ){
-      getToolkit().beep();
-      evt.consume();
-    } else if (txtCost.getText().length()>=10){
-      getToolkit().beep();
-      evt.consume();
-    } if(txtCost.getText().length()==9){
-      txtCost.setText(txtCost.getText().substring(1));
-    }
-  }//GEN-LAST:event_txtCostKeyTyped
-
-  private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    setVisible(false);
-  }//GEN-LAST:event_jButton1ActionPerformed
+  private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+    fill_Table();
+    fill_combo();
+  }//GEN-LAST:event_formComponentShown
 
   /**
    * @param args the command line arguments
@@ -353,20 +354,27 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
         }
       }
     } catch (ClassNotFoundException ex) {
-      java.util.logging.Logger.getLogger(ViewEditDeleteProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(JDialogViewEditDeleteProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (InstantiationException ex) {
-      java.util.logging.Logger.getLogger(ViewEditDeleteProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(JDialogViewEditDeleteProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (IllegalAccessException ex) {
-      java.util.logging.Logger.getLogger(ViewEditDeleteProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(JDialogViewEditDeleteProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-      java.util.logging.Logger.getLogger(ViewEditDeleteProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(JDialogViewEditDeleteProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     }
     //</editor-fold>
 
-    /* Create and display the form */
+    /* Create and display the dialog */
     java.awt.EventQueue.invokeLater(new Runnable() {
       public void run() {
-        new ViewEditDeleteProduct().setVisible(true);
+        JDialogViewEditDeleteProduct dialog = new JDialogViewEditDeleteProduct(new javax.swing.JFrame(), true);
+        dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+          @Override
+          public void windowClosing(java.awt.event.WindowEvent e) {
+            System.exit(0);
+          }
+        });
+        dialog.setVisible(true);
       }
     });
   }
@@ -393,6 +401,7 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
   private javax.swing.JTextField txtPrice;
   // End of variables declaration//GEN-END:variables
 
+
 public void validateFields(){
   String name = txtName.getText();
   String mprice = txtPrice.getText();
@@ -417,10 +426,10 @@ public void clear(){
     
 }
 private void fill_combo() {
-    ArrayList<Category> list = CategoryDao.getAllRecords();
-    Iterator<Category> itr =  list.iterator();
+    ArrayList<model.Category> list = CategoryDao.getAllRecords();
+    Iterator<model.Category> itr =  list.iterator();
     while (itr.hasNext()){
-     Category categoryObj = itr.next();
+      model.Category categoryObj = itr.next();
      cbCategory.addItem(categoryObj.getName());
 
     }
@@ -443,6 +452,4 @@ private void fill_combo() {
     
     }
   }
-
 }
-

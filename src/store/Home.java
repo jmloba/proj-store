@@ -57,6 +57,7 @@ public class Home extends javax.swing.JFrame {
     jButton2 = new javax.swing.JButton();
     jButton3 = new javax.swing.JButton();
     jButton4 = new javax.swing.JButton();
+    jButton5 = new javax.swing.JButton();
     jLabel1 = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -140,6 +141,14 @@ public class Home extends javax.swing.JFrame {
     });
     jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 150, 30));
 
+    jButton5.setText("Purchase Entry (Temp)");
+    jButton5.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton5ActionPerformed(evt);
+      }
+    });
+    jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 180, -1));
+
     getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 290, 190));
 
     jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/storeHome.png"))); // NOI18N
@@ -159,28 +168,51 @@ public class Home extends javax.swing.JFrame {
   }//GEN-LAST:event_jButton1ActionPerformed
 
   private void btnCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCategoryActionPerformed
-    new Category().setVisible(true);
+//    new Category().setVisible(true);
+    JDialogCategory jdialogcategory= new JDialogCategory(this, true );
+    jdialogcategory.setVisible(true);
+    
   }//GEN-LAST:event_btnCategoryActionPerformed
 
   private void btnNewProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewProductActionPerformed
-        new NewStoreProduct().setVisible(true);
+//        new NewStoreProduct().setVisible(true);
+    JDialogNewProduct jdialognewproduct = new JDialogNewProduct(this, true );
+    jdialognewproduct.setVisible(true);
   }//GEN-LAST:event_btnNewProductActionPerformed
 
   private void btnViewEditDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewEditDeleteActionPerformed
-            new ViewEditDeleteProduct().setVisible(true);
+//            new ViewEditDeleteProduct().setVisible(true);
+    JDialogViewEditDeleteProduct jdialogvieweditdelete = new JDialogViewEditDeleteProduct(this, true );
+    jdialogvieweditdelete.setVisible(true);
+            
   }//GEN-LAST:event_btnViewEditDeleteActionPerformed
 
   private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-  new ChangePassword(user_email).setVisible(true);    // TODO add your handling code here:
+//  new ChangePassword(user_email).setVisible(true);    // TODO add your handling code here:
+  JDialogChangePassword jdialogchangepassword = new JDialogChangePassword(this,true,user_email);
+  jdialogchangepassword.setVisible(true);
+
   }//GEN-LAST:event_jButton2ActionPerformed
 
   private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-new ViewBillsAndPlacedOrder().setVisible(true);    // TODO add your handling code here:
+//new ViewBillsAndPlacedOrder().setVisible(true);    // TODO add your handling code here:
+JDialogViewBillsAndPlacedOrder jdialog_viewbillsandplacedorder = new JDialogViewBillsAndPlacedOrder(this,true);
+jdialog_viewbillsandplacedorder.setVisible(true);
+
   }//GEN-LAST:event_jButton3ActionPerformed
 
   private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-   new PlaceOrder().setVisible(true);
+//   new PlaceOrder().setVisible(true);
+   JDialogPlaceOrder jdialogplaceorder = new JDialogPlaceOrder(this, true );
+    jdialogplaceorder.setVisible(true);   
   }//GEN-LAST:event_jButton4ActionPerformed
+
+  private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+//  new TempPurchaseEntry(user_email).setVisible(true);    // TODO add your handling code here:
+  JDialogTempPurchaseEntry jdialogtemppurchaseentry = new JDialogTempPurchaseEntry(this,true,user_email);
+  jdialogtemppurchaseentry.setVisible(true);
+
+  }//GEN-LAST:event_jButton5ActionPerformed
 
   /**
    * @param args the command line arguments
@@ -225,6 +257,7 @@ new ViewBillsAndPlacedOrder().setVisible(true);    // TODO add your handling cod
   private javax.swing.JButton jButton2;
   private javax.swing.JButton jButton3;
   private javax.swing.JButton jButton4;
+  private javax.swing.JButton jButton5;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JPanel jPanel1;
   private javax.swing.JLabel lbl_Email;

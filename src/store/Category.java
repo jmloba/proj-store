@@ -45,6 +45,7 @@ public class Category extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
+    jComboBox1 = new javax.swing.JComboBox<>();
     jButton1 = new javax.swing.JButton();
     jPanel1 = new javax.swing.JPanel();
     jLabel2 = new javax.swing.JLabel();
@@ -58,9 +59,9 @@ public class Category extends javax.swing.JFrame {
     jTable1 = new javax.swing.JTable();
     jLabel5 = new javax.swing.JLabel();
 
+    jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-    setUndecorated(true);
-    setResizable(false);
     addComponentListener(new java.awt.event.ComponentAdapter() {
       public void componentShown(java.awt.event.ComponentEvent evt) {
         formComponentShown(evt);
@@ -110,6 +111,11 @@ public class Category extends javax.swing.JFrame {
     jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
 
     txtCode.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+    txtCode.addKeyListener(new java.awt.event.KeyAdapter() {
+      public void keyTyped(java.awt.event.KeyEvent evt) {
+        txtCodeKeyTyped(evt);
+      }
+    });
     jPanel1.add(txtCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 75, 160, -1));
 
     txtName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -196,6 +202,10 @@ setVisible(false);
     }
   }//GEN-LAST:event_jTable1MouseClicked
 
+  private void txtCodeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodeKeyTyped
+    // TODO add your handling code here:
+  }//GEN-LAST:event_txtCodeKeyTyped
+
   /**
    * @param args the command line arguments
    */
@@ -235,6 +245,7 @@ setVisible(false);
   private javax.swing.JButton btn_Save;
   private javax.swing.JButton jButton1;
   private javax.swing.JButton jButton3;
+  private javax.swing.JComboBox<String> jComboBox1;
   private javax.swing.JLabel jLabel2;
   private javax.swing.JLabel jLabel3;
   private javax.swing.JLabel jLabel5;

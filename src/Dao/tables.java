@@ -42,7 +42,9 @@ public class tables {
 //    createTAble_Product();
 //    createTAble_Product();
 //    createTable_Bill();
-      createTable_Bill_history();
+//      createTable_Bill_history();
+//      createTable_PurhcasesTemp();
+      createTable_Purhcases();
     
       
   }
@@ -172,7 +174,48 @@ public class tables {
             + "quantity int not null default 0, "
             + "price double not null default 0.00, "
             + "total double not null default 0.00, "
-            + "createdby varchar(200)"
+            + "createdby varchar(200) not null "
+            + ")"   ;
+  try{          
+      createtable(TABLE_NAME,query );
+       
+     }catch(Exception e){
+         JOptionPane.showMessageDialog(null, e);
+     }
+  }
+
+  private static void createTable_PurhcasesTemp() {
+    String TABLE_NAME= "temp_purchases";
+    String query="create table "+TABLE_NAME+" (id int primary key AUTO_INCREMENT,"
+            + "product_name varchar (200) not null, "
+            + "category varchar (200) not null, "
+            + "quantity int not null default 0, "
+            + "price double not null default 0.00, "
+            + "total double not null default 0.00, "
+            + "createdby varchar(200) "
+            + ")"   ;
+  try{          
+      createtable(TABLE_NAME,query );
+       
+     }catch(Exception e){
+         JOptionPane.showMessageDialog(null, e);
+     }
+  }
+
+  private static void createTable_Purhcases() {
+        String TABLE_NAME= "purchases";
+    String query="create table "+TABLE_NAME+" (id int primary key AUTO_INCREMENT,"
+            + "ref int default 0 not null,  "
+            + "product_name varchar (200) not null, "
+            + "category varchar (200) not null, "
+            + "quantity int not null default 0, "
+            + "price double not null default 0.00, "
+            + "total double not null default 0.00, "
+            + "createdby varchar(200),  "
+            + "purchase_from varchar(200),  "
+            + "purchase_date date  "
+            
+            
             + ")"   ;
   try{          
       createtable(TABLE_NAME,query );

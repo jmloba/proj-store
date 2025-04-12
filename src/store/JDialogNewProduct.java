@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package store;
 
@@ -15,16 +15,17 @@ import model.Product;
  *
  * @author JovenLoba
  */
-public class NewStoreProduct extends javax.swing.JFrame {
+public class JDialogNewProduct extends javax.swing.JDialog {
 
   /**
-   * Creates new form NewStoreProduct
+   * Creates new form jDialogNewProduct
    */
-  public NewStoreProduct() {
+  public JDialogNewProduct(java.awt.Frame parent, boolean modal) {
+    super(parent, modal);
     initComponents();
     frameSizeLocation();
   }
-  private void frameSizeLocation() {
+   private void frameSizeLocation() {
     int  height =  global.GlobalVariables.windowCategoryHeight;
     int  width =  global.GlobalVariables.windowCategoryWidth;
     int x = 600;
@@ -33,7 +34,7 @@ public class NewStoreProduct extends javax.swing.JFrame {
 //    setLocation(200,100);
     setBounds(x,y,width,height);
 
-  }    
+  } 
   /**
    * This method is called from within the constructor to initialize the form.
    * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,7 +45,6 @@ public class NewStoreProduct extends javax.swing.JFrame {
   private void initComponents() {
 
     jTextField1 = new javax.swing.JTextField();
-    btnExit = new javax.swing.JButton();
     btn_Cancel = new javax.swing.JPanel();
     jLabel2 = new javax.swing.JLabel();
     txtName = new javax.swing.JTextField();
@@ -56,13 +56,10 @@ public class NewStoreProduct extends javax.swing.JFrame {
     txtPrice = new javax.swing.JTextField();
     btn_Save = new javax.swing.JButton();
     jButton2 = new javax.swing.JButton();
+    btnExit = new javax.swing.JButton();
     jLabel1 = new javax.swing.JLabel();
-    jLabel6 = new javax.swing.JLabel();
 
-    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-    setMinimumSize(new java.awt.Dimension(500, 250));
-    setUndecorated(true);
-    setResizable(false);
+    setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     addComponentListener(new java.awt.event.ComponentAdapter() {
       public void componentShown(java.awt.event.ComponentEvent evt) {
         formComponentShown(evt);
@@ -72,16 +69,6 @@ public class NewStoreProduct extends javax.swing.JFrame {
 
     jTextField1.setText("jTextField1");
     getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 444, -1));
-
-    btnExit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-    btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit small.png"))); // NOI18N
-    btnExit.setText("Exit");
-    btnExit.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        btnExitActionPerformed(evt);
-      }
-    });
-    getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 20, -1, -1));
 
     btn_Cancel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -143,63 +130,70 @@ public class NewStoreProduct extends javax.swing.JFrame {
 
     getContentPane().add(btn_Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 470, 300));
 
-    jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background_orange_700x450.png"))); // NOI18N
-    getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -50, 750, 550));
+    btnExit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+    btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit small.png"))); // NOI18N
+    btnExit.setText("Exit");
+    btnExit.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnExitActionPerformed(evt);
+      }
+    });
+    getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 20, -1, -1));
 
-    jLabel6.setText("jLabel6");
-    getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 310, 30));
+    jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background_orange_700x450.png"))); // NOI18N
+    jLabel1.setText("jLabel1");
+    getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, -1));
 
     pack();
   }// </editor-fold>//GEN-END:initComponents
-
-  private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-setVisible(false);
-  }//GEN-LAST:event_btnExitActionPerformed
-
-  private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-  clear_inputs();    // TODO add your handling code here:
-  }//GEN-LAST:event_jButton2ActionPerformed
-
-  private void btn_SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SaveActionPerformed
-save_record();
-  }//GEN-LAST:event_btn_SaveActionPerformed
-
-  private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
-fill_category();
-  
-  }//GEN-LAST:event_formComponentShown
 
   private void txtCostKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCostKeyTyped
     char c = evt.getKeyChar();
     if ( !(Character.isDigit(c)) && c !=KeyEvent.VK_PERIOD){
       getToolkit().beep();
-      evt.consume(); 
+      evt.consume();
     }else if(c==KeyEvent.VK_PERIOD && txtCost.getText().indexOf(".")>-1 ){
       getToolkit().beep();
-      evt.consume(); 
+      evt.consume();
     } else if (txtCost.getText().length()>=10){
       getToolkit().beep();
-      evt.consume(); 
+      evt.consume();
     } if(txtCost.getText().length()==9){
       txtCost.setText(txtCost.getText().substring(1));
     }
   }//GEN-LAST:event_txtCostKeyTyped
 
   private void txtPriceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPriceKeyTyped
-  char c = evt.getKeyChar();
+    char c = evt.getKeyChar();
     if ( !(Character.isDigit(c)) && c !=KeyEvent.VK_PERIOD){
       getToolkit().beep();
-      evt.consume(); 
+      evt.consume();
     }else if(c==KeyEvent.VK_PERIOD && txtPrice.getText().indexOf(".")>-1 ){
       getToolkit().beep();
-      evt.consume(); 
+      evt.consume();
     } else if (txtPrice.getText().length()>=10){
       getToolkit().beep();
-      evt.consume(); 
+      evt.consume();
     } if(txtPrice.getText().length()==9){
       txtPrice.setText(txtPrice.getText().substring(1));
     }
   }//GEN-LAST:event_txtPriceKeyTyped
+
+  private void btn_SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SaveActionPerformed
+    save_record();
+  }//GEN-LAST:event_btn_SaveActionPerformed
+
+  private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    clear_inputs();    // TODO add your handling code here:
+  }//GEN-LAST:event_jButton2ActionPerformed
+
+  private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+    setVisible(false);
+  }//GEN-LAST:event_btnExitActionPerformed
+
+  private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+    fill_category();
+  }//GEN-LAST:event_formComponentShown
 
   /**
    * @param args the command line arguments
@@ -218,20 +212,28 @@ fill_category();
         }
       }
     } catch (ClassNotFoundException ex) {
-      java.util.logging.Logger.getLogger(NewStoreProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(JDialogNewProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (InstantiationException ex) {
-      java.util.logging.Logger.getLogger(NewStoreProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(JDialogNewProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (IllegalAccessException ex) {
-      java.util.logging.Logger.getLogger(NewStoreProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(JDialogNewProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-      java.util.logging.Logger.getLogger(NewStoreProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(JDialogNewProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     }
     //</editor-fold>
+    //</editor-fold>
 
-    /* Create and display the form */
+    /* Create and display the dialog */
     java.awt.EventQueue.invokeLater(new Runnable() {
       public void run() {
-        new NewStoreProduct().setVisible(true);
+        JDialogNewProduct dialog = new JDialogNewProduct(new javax.swing.JFrame(), true);
+        dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+          @Override
+          public void windowClosing(java.awt.event.WindowEvent e) {
+            System.exit(0);
+          }
+        });
+        dialog.setVisible(true);
       }
     });
   }
@@ -247,23 +249,13 @@ fill_category();
   private javax.swing.JLabel jLabel3;
   private javax.swing.JLabel jLabel4;
   private javax.swing.JLabel jLabel5;
-  private javax.swing.JLabel jLabel6;
   private javax.swing.JTextField jTextField1;
   private javax.swing.JTextField txtCost;
   private javax.swing.JTextField txtName;
   private javax.swing.JTextField txtPrice;
   // End of variables declaration//GEN-END:variables
 
-  private void clear_inputs() {
-    btn_Save.setEnabled(false);
-    txtName.setText("");
-    txtPrice.setText("");
-    txtCost.setText("");
-    
-    
-  }
-
-  private void save_record() {
+ private void save_record() {
    String name = txtName.getText();
    Double price = Double.valueOf(txtPrice.getText());
    Double cost = Double.valueOf(txtCost.getText());
@@ -279,9 +271,19 @@ fill_category();
    ProductDao.save(product);
    
    setVisible(false);
-   new NewStoreProduct().setVisible(true);
+   JDialogNewProduct dialog = new JDialogNewProduct(new javax.swing.JFrame(), true);
+   dialog.setVisible(true);
+//   new NewStoreProduct().setVisible(true);
   }
 
+  private void clear_inputs() {
+    btn_Save.setEnabled(false);
+    txtName.setText("");
+    txtPrice.setText("");
+    txtCost.setText("");
+    
+    
+  } 
   private void fill_category() {
      ArrayList<model.Category> list = CategoryDao.getAllRecords();
   Iterator<model.Category> itr =  list.iterator();

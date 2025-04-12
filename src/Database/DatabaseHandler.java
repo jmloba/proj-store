@@ -73,7 +73,9 @@ System.out.println("create connetion");
       result = stmt.executeQuery(query);
       show_connection(connew,handler);
     } catch (SQLException ex) {
-//      jOptionPane.showMessageDialog(null,"Error" + ex.getMessage(),"Error Occured", JOptionPane.ERROR_MESSAGE);
+      
+      JOptionPane.showMessageDialog(null,"Error" + ex.getMessage(),"Error Occured", JOptionPane.ERROR_MESSAGE);
+      System.out.println("from database handler -> execQuery");
       System.out.println("Exception at execquery : dataHandler" + ex.getLocalizedMessage());
       return null;
     } finally {
